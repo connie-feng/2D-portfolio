@@ -133,6 +133,21 @@ k.scene("main", async () => {
       return;
     }
   });
+
+  function stopAnims() {
+    if (player.direction === "down") {
+      player.play("idle-down");
+      return;
+    }
+    if (player.direction === "up") {
+      player.play("idle-up");
+      return;
+    }
+
+    player.play("idle-side");
+  }
+
+  k.onMouseRelease(stopAnims);
 });
 
 k.go("main");
